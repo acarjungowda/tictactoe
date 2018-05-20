@@ -2,9 +2,9 @@
   "name": "tictactoe",
   "version": "1.0.0",
   "description": "Online Multiplayer tictactoe game",
-  "main": "index.js",
+  "main": "tictac_server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node tictac_server.js"
   },
   "author": "Arjun, Radha",
   "license": "ISC",
