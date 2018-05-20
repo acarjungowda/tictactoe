@@ -50,7 +50,7 @@ setInterval(function() {
 }, 1000 / 60);
 
 
-// handler onthe clien t side to draw the data on the serve to the HTML5 canvas
+// handler on the client side to draw the data on the serve to the HTML5 canvas
 var canvas = document.getElementById('canvas');
 canvas.width = 800;
 canvas.height = 600;

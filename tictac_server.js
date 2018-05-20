@@ -11,11 +11,6 @@ var io = socketIO(server);
 app.set('port', 5000);
 app.use('/static', express.static(__dirname + '/static'));
 
-// Routing
-app.get('/', function(request, response){
-	response.sendFile(path.join(__dirname, 'index.html'));
-});
-
 // Routing to tic tac toe html page
 app.get('/tictac', function(request, response) {
 	response.sendFile(path.join(__dirname, 'tictac.html'));
@@ -26,39 +21,41 @@ server.listen(5000, function() {
 	console.log('Starting server on port 5000');
 });
 
-setInterval(function() {
-	io.sockets.emit('message', 'hi!');
-}, 1000);
-
 
 // handling the user input on the server
 var players = {};
+var playerOne;
+var playerTwo;
+var currentPlayer;
 // Add the WebSocket handlers
 io.on('connection', function(socket) {
 	socket.on('new player', function() {
-		players[socket.id] = {
-			x: 300,
-			y: 300
-		};
+		console.log("handling new player event for the palyer" + socket.id);
+		if (Object.keys(players).length === 0){
+			players[socket.id] = {marker: "X"};
+			playerOne = socket.id;
+			currentPlayer = playerOne;
+		} else if (Object.keys(players).length === 1) {
+			players[socket.id] = {marker: 'O'};
+			playerTwo = socket.id;
+		}
 	});
-	socket.on('movement', function(data) {
-		var player = players[socket.id] || {};
-		if (data.left) {
-      		player.x -= 5;
-    	}
-    	if (data.up) {
-      		player.y -= 5;
-    	}
-    	if (data.right) {
-      		player.x += 5;
-    	}
-    	if (data.down) {
-      		player.y += 5;
-    	}
-	});
+
+
 	socket.on('clickCell', function(x, y){
 		console.log('receving data from clickCell and emiting state x='+x+" y="+y);
-		io.sockets.emit('boardState', x, y, 1);
+		if (currentPlayer === socket.id && Object.keys(players).length === 2) {
+			var player = players[socket.id] || {};
+			io.sockets.emit('boardState', x, y, player.marker);
+			if (currentPlayer === playerOne) {
+				currentPlayer = playerTwo;
+			} else {
+				currentPlayer = playerOne;
+			}
+		} else {
+			console.log('wait for your opponent to make a move');
+			io.to(socket.id).emit('waitForYourTurn')
+		}
 	});
 });
 

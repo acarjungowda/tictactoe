@@ -21,10 +21,23 @@
 
   <script src="/socket.io/socket.io.js"></script>
   <style>
-  canvas {
-    width: 800px;
-    height: 600px;
-    border: 5px solid black;
+
+  .cell {
+    width:80px;
+    height:80px;
+    border: 5px solid #000000;
+    background: #FFFFFF;
+    font-size: 46pt;
+    font-family: arial;
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+
+  }
+
+  .cell:hover {
+    background: #C2DBFC;
+    text-align: center;
   }
 </style>
 </head>
@@ -36,19 +49,46 @@
 
   <!-- Add your site or application content here -->
   <div class="container">
-    <p>Hello world! This is HTML5 Boilerplate.</p>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading" style="text-align: center;">Online Multiplayer TicTacToe Game</div>
+          <div class="panel-body">
 
-    <canvas id="canvas"></canvas>
+            <div class="table-responsive">
+              <table class="table">
+                <tr>
+                  <td id="cell_0_0" class="cell" onClick="JavaScript: clickCell(0,0);">&nbsp;</td>
+                  <td id="cell_0_1" class="cell" onClick="JavaScript: clickCell(0,1);">&nbsp;</td>
+                  <td id="cell_0_2" class="cell" onClick="JavaScript: clickCell(0,2);">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td id="cell_1_0" class="cell" onClick="JavaScript: clickCell(1,0);">&nbsp;</td>
+                  <td id="cell_1_1" class="cell" onClick="JavaScript: clickCell(1,1);">&nbsp;</td>
+                  <td id="cell_1_2" class="cell" onClick="JavaScript: clickCell(1,2);">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td id="cell_2_0" class="cell" onClick="JavaScript: clickCell(2,0);">&nbsp;</td>
+                  <td id="cell_2_1" class="cell" onClick="JavaScript: clickCell(2,1);">&nbsp;</td>
+                  <td id="cell_2_2" class="cell" onClick="JavaScript: clickCell(2,2);">&nbsp;</td>
+                </tr>
+              </table>
+            </div>
+            <input type="button" class="btn btn-primary" onClick="Javascript: reset();" value="Reset">
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
 
 
   <!-- Site main content ends here -->
 
   <!-- Add all your script files here -->
 
-  <script src="/static/game.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+  <!-- <script src="/static/game.js"></script> -->
+  <script src="/static/tictac.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
