@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Online TicTacToe</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,8 +22,6 @@
   <style>
 
   .cell {
-    width:80px;
-    height:80px;
     border: 5px solid #000000;
     background: #FFFFFF;
     font-size: 46pt;
@@ -47,39 +44,59 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
 
+  <!-- nav bar -->
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Online TicTacToe</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- nav ends here -->
+
   <!-- Add your site or application content here -->
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <div class="panel panel-primary">
-          <div class="panel-heading" style="text-align: center;">Online Multiplayer TicTacToe Game</div>
-          <div class="panel-body">
-
-            <div class="table-responsive">
-              <table class="table">
-                <tr>
-                  <td id="cell_0_0" class="cell" onClick="JavaScript: clickCell(0,0);">&nbsp;</td>
-                  <td id="cell_0_1" class="cell" onClick="JavaScript: clickCell(0,1);">&nbsp;</td>
-                  <td id="cell_0_2" class="cell" onClick="JavaScript: clickCell(0,2);">&nbsp;</td>
-                </tr>
-                <tr>
-                  <td id="cell_1_0" class="cell" onClick="JavaScript: clickCell(1,0);">&nbsp;</td>
-                  <td id="cell_1_1" class="cell" onClick="JavaScript: clickCell(1,1);">&nbsp;</td>
-                  <td id="cell_1_2" class="cell" onClick="JavaScript: clickCell(1,2);">&nbsp;</td>
-                </tr>
-                <tr>
-                  <td id="cell_2_0" class="cell" onClick="JavaScript: clickCell(2,0);">&nbsp;</td>
-                  <td id="cell_2_1" class="cell" onClick="JavaScript: clickCell(2,1);">&nbsp;</td>
-                  <td id="cell_2_2" class="cell" onClick="JavaScript: clickCell(2,2);">&nbsp;</td>
-                </tr>
-              </table>
-            </div>
-            <input type="button" class="btn btn-primary" onClick="Javascript: reset();" value="Reset">
-          </div>
-        </div>
+        <div class="well well-sm">Small Well</div>
+        <div class="well well-sm">Small Well</div>
+        <div class="well well-sm">Small Well</div>
       </div>
     </div>
-  </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+
+        <div class="table-responsive">
+          <table class="table">
+            <tr>
+              <td id="cell_0_0" class="cell" onClick="JavaScript: clickCell(0,0);">&nbsp;</td>
+              <td id="cell_0_1" class="cell" onClick="JavaScript: clickCell(0,1);">&nbsp;</td>
+              <td id="cell_0_2" class="cell" onClick="JavaScript: clickCell(0,2);">&nbsp;</td>
+            </tr>
+            <tr>
+              <td id="cell_1_0" class="cell" onClick="JavaScript: clickCell(1,0);">&nbsp;</td>
+              <td id="cell_1_1" class="cell" onClick="JavaScript: clickCell(1,1);">&nbsp;</td>
+              <td id="cell_1_2" class="cell" onClick="JavaScript: clickCell(1,2);">&nbsp;</td>
+            </tr>
+            <tr>
+              <td id="cell_2_0" class="cell" onClick="JavaScript: clickCell(2,0);">&nbsp;</td>
+              <td id="cell_2_1" class="cell" onClick="JavaScript: clickCell(2,1);">&nbsp;</td>
+              <td id="cell_2_2" class="cell" onClick="JavaScript: clickCell(2,2);">&nbsp;</td>
+            </tr>
+          </table>
+        </div> <!-- table-responsive -->
+        <input type="button" class="btn btn-primary" onClick="Javascript: reset();" value="Reset">
+
+      </div> <!-- col-sm-12 -->
+    </div> <!-- row -->
+  </div> <!-- container -->
 
 
 
