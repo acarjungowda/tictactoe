@@ -18,7 +18,7 @@ for (var i=0; i<=2; i++) {
 
 // Checks If Grid Is Already Clicked
 function clickCell(x,y) {
-  if (grid[x][y]>0) {
+  if (grid[x][y]!=0) {
     alert("Dont Try To Cheat Bud!!!!!");
   } else {
     /*// Clicking Of Boxes, upldate grid values
@@ -34,15 +34,18 @@ function clickCell(x,y) {
       currentPlayer=1;
     }*/
     console.log("emitting clickCell "+x+" "+y);
+    
     socket.emit('clickCell', x, y);
   }
 }
 
-
 socket.on('boardState', function(x,y,value){
   document.getElementById("cell_"+x+"_"+y).innerHTML=value;
-  grid[x][y]=1;
+  grid[x][y]=value;
   console.log("state updated x="+x+" y="+y+" value="+value);
+  if (validateBoard(value)) {
+    alert("currentPlayer won");
+  }
 });
 
 
